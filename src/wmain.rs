@@ -177,13 +177,13 @@ fn env_init() -> (bool, bool, USHORT) {
     )
   };
   #[cfg(feature = "windows7")]
-  let is_windows7 = MajorVersion == 6 && MinorVersion == 1;
+  let is_windows7 = major_version == 6 && minor_version == 1;
   #[cfg(not(feature = "windows7"))]
   let is_windows7 = false;
   #[cfg(feature = "windows10")]
   let is_windows10 = true;
   #[cfg(not(feature = "windows10"))]
-  let is_windows10 = MajorVersion > 10;
+  let is_windows10 = major_version > 10;
   let mut native_machine = IMAGE_FILE_PROCESS;
   #[cfg(any(target_arch = "x86", target_arch = "arm", target_arch = "x86_64"))]
   {
